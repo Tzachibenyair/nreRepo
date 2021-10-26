@@ -2,12 +2,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
+ * Class TestThreadCheckArray describe the process of creating
+ * two threads with ThreadCheckArray class.
+ * if one of the thread return a solution for b the number in the array 
+ * that are summed up to b will be print, else "sorry" will be printed.
+ * 
+ * @author Eden
  * @author Tzachi
  * 
  * 
  *
  */
 public class TestThreadCheckArray {
+	
+	
 	public static void main(String[] args) {
 		try (Scanner input = new Scanner(System.in)) {
 			Thread thread1, thread2;

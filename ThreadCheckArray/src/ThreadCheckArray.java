@@ -1,5 +1,14 @@
 import java.util.ArrayList;
-
+/**
+ * The class represent the two threads 
+ * and the process of finding if an Integer array numbers 
+ * can be summed up to b
+ * 
+ *   @author Tzachi
+ *   @author Eden
+ *
+ * 
+ * */
 public class ThreadCheckArray implements Runnable 
 {
 	private boolean flag;
@@ -7,7 +16,13 @@ public class ThreadCheckArray implements Runnable
 	SharedData sd;
 	ArrayList<Integer> array;
 	int b;
-	
+	/**
+     * The constructor create new boolean array the size of given sd array
+     * different for each thread
+     *  @param SharedData sd
+     *
+     * 
+     * */
 	public ThreadCheckArray(SharedData sd) 
 	{
 		this.sd = sd;	
@@ -18,7 +33,11 @@ public class ThreadCheckArray implements Runnable
 		}		
 		winArray = new boolean[array.size()];
 	}
-	
+	/**rec method describes the recursion process of finding
+	 * if an array can be summed up to number b
+	 * @param int n is the size of the array
+	 * @param int b is the number we check
+	 * */
 	void rec(int n, int b)
 	{
 		synchronized (sd) 
@@ -51,7 +70,10 @@ public class ThreadCheckArray implements Runnable
 		}	
 		rec(n-1, b);
 	}
-
+	/**run method describe the process of the two threads and using rec method 
+	 * in order to check the array. 
+	 * if one thread found the result ,only it can write the result array 
+	 * so they can't do it together*/
 	public void run() {
 		if (array.size() != 1)
 			if (Thread.currentThread().getName().equals("thread1"))
