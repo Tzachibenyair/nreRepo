@@ -18,8 +18,7 @@ public class ThreadCheckArray implements Runnable
 	int b;
 	/**
      * The constructor create new boolean array the size of given sd array
-     * different for each thread
-     *  @param SharedData sd
+     * different for each thread 
      *
      * 
      * */
